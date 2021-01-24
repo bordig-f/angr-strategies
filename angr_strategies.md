@@ -18,9 +18,14 @@ If the program calls ptrace():
 Init state
 ----------
 - use angr.options.unicorn
-- if a program uses syscalls that should not be handled, use `BYPASS_UNSUPPORTED_SYSCALL`
-- if some memory or registers bytes are known, concatenate a `BVV` and a `BVS` (e.g.
-  `claripy.BVV(0, 56).concat(claripy.BVS('rdi', 8))`)
+
+If a program uses syscalls that should not be handled:
+
+- use `BYPASS_UNSUPPORTED_SYSCALL`
+
+If some memory or registers bytes are known:
+
+- concatenate a `BVV` and a `BVS` (e.g. `claripy.BVV(0, 56).concat(claripy.BVS('rdi', 8))`)
 
 Input
 -----
